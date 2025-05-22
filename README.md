@@ -75,6 +75,25 @@ Swagger UI: http://localhost:8000/api/docs/ \
 ReDoc: http://localhost:8000/api/redoc/
 
 
+Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+## 🧹 Code Quality
+
+### Running Ruff:
+```bash
+# Check code
+ruff check .
+
+# Format code
+ruff format .
+
+# Check and fix
+ruff check . --fix
+```
+
 ## 🧪 Running Tests
 
 ### Using Docker (recommended):
