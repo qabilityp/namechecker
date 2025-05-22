@@ -56,8 +56,8 @@ JWT_SECRET_KEY=your-jwt-secret-key
 1.Clone the repository:
 
 ```
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/qabilityp/namechecker.git
+cd namechecker
 ```
 
 2.Start the project with Docker Compose:
@@ -73,13 +73,18 @@ Swagger UI: http://localhost:8000/api/docs/ \
 ReDoc: http://localhost:8000/api/redoc/
 
 
-🧪 Running Tests
-```
-# Run tests with pytest
-docker-compose run web python -m pytest
+## 🧪 Running Tests
+
+### Using Docker (recommended):
+```bash
+# Run tests
+docker-compose run django-web python -m pytest
+
+# Run tests with verbose output
+docker-compose run django-web python -m pytest -v
 
 # Run tests with coverage
-docker-compose run web python -m pytest --cov
+docker-compose run django-web python -m pytest --cov
 ```
 
 📝 API Endpoints
