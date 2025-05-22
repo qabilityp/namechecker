@@ -36,15 +36,17 @@ Create a `.env` file in the root directory with the following variables:
 ```env
 # Django
 DEBUG=True
-SECRET_KEY=your-secret-key-here
-DJANGO_SETTINGS_MODULE=where_from.where_from.settings
+DJANGO_SECRET_KEY=your-secret-key-here
+DJANGO_LOGLEVEL=info
+DJANGO_ALLOWED_HOSTS=localhost,0.0.0.0,127.0.0.1,31.202.155.50
 
 # Database
+DATABASE_ENGINE=postgresql
 DB_NAME=your_db_name
-DB_USER=your_db_user
-DB_PASSWORD=your_db_password
-DB_HOST=db
-DB_PORT=5432
+DATABASE_USERNAME=dbuser
+DATABASE_PASSWORD=dbpassword
+DATABASE_HOST=db
+DATABASE_PORT=5432
 
 # JWT
 JWT_SECRET_KEY=your-jwt-secret-key
@@ -91,6 +93,54 @@ docker-compose run django-web python -m pytest --cov
 
 Authentication
 
-POST /auth/register/ - Register new user \
-POST /auth/token/ - Obtain JWT token \
-POST /auth/token/refresh/ - Refresh JWT token
+POST /auth/register/ - Register new user
+
+```
+{
+  "username": "string",
+  "password": "string"
+}
+```
+POST /auth/token/ - Obtain JWT token
+```
+{
+  "username": "string",
+  "password": "string"
+}
+```
+
+Name Operations
+
+GET /names/ - returns information about the most likely countries associated with that name
+``` 
+{
+    "name": "Alexander",
+    "likely_origins": [
+        {
+            "country": "Greece",
+            "probability": 0.85
+        },
+        {
+            "country": "Russia",
+            "probability": 0.45
+        }
+    ]
+}
+```
+
+GET /popular/ - returns the top 5 most frequent names associated with that country
+```
+{
+    "country": "US",
+    "top_names": [
+        {
+            "name": "Oliver",
+            "frequency": 34215
+        },
+        {
+            "name": "Noah",
+            "frequency": 32567
+        }
+    ]
+}
+```
