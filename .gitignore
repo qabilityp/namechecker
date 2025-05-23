@@ -1,1 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+*.pyc
+
+# Virtual Environment
+venv/
+env/
+.env
+
+# IDE
 .idea/
+.vscode/
+*.swp
+*.swo
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Project specific
+.coverage
+htmlcov/
+.pytest_cache/
